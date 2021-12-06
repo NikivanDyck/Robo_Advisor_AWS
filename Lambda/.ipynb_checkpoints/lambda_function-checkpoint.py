@@ -124,56 +124,7 @@ def recommend_portfolio(intent_request):
     risk_level = get_slots(intent_request)["riskLevel"]
     source = intent_request["invocationSource"]
 
-    
-  if age is not None:
-        if age < 65:
-            return build_validation_result(
-                False,
-                "age",
-                "You should be at least 65 years old to use this service, "
-                "Please provide a different age.",
-            )
-
-    if investment_amount is not None:
-        if investment_amount <= 5000:
-            return build_validation_result(
-                False,
-                "investment_amount",
-                "The amount to convert should be greater than five thousand, "
-                "please provide a updated amount to convert.",
-            )
-        
-
-
-        
-    def get_fg_index():
-    """
-    Retrieves the current Bitcoin Fear & Greed Index from the alternative.me Crypto API.
-    """
-    ticker_url = "https://api.alternative.me/v2/ticker/"
-    response = requests.get(ticker_url)
-    response_json = response.json()
-    fg_index = parse_float(response_json["data"][74]["name"])
-    return fg_index
-
-
-        
-    fg_index = get_fg_index()
-    recommendation = ""
-    if risk_level >= none and age <=85:
-        recommendation = "Be cautious investing in highrisk stocks."
-    elif risk_level >= low and age <=85:
-        recommendation = "Be cautious investing in highrisk stocks."
-    elif fg_index > 25 and fg_index < 50:
-        recommendation = "Be cautious on buying bitcoin today since the market feels 'Fear'."
-    elif fg_index == 50:
-        recommendation = "You may buy bitcoin today since the market feels 'Neutral'."
-    elif fg_index > 50 and fg_index <= 75:
-        recommendation = "You may buy bitcoin today, the market feels 'Greed'."
-    else:
-        recommendation = "You may buy bitcoin today, the market feels 'Extreme Greed'."
-    return recommendation
-
+    # YOUR CODE GOES HERE!
 
 
 ### Intents Dispatcher ###
